@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.DashboardMapper">
+<!-- 전체 민원 게시글 수 불러오기 -->
+<select id="getTotalPostCount" resultType="int">
+   SELECT COUNT(*) FROM Post
+</select>
+<!-- 민원 처리대기 갯수 -->
+<select id="getPendingPostCount" resultType="int">
+   SELECT COUNT(*) FROM Post WHERE completed = 0
+</select>
+<!-- 민원 처리완료 갯수 -->
+<select id="getCompletedPostCount" resultType="int">
+   SELECT COUNT(*) FROM Post WHERE completed = 1
+</select>
+<!-- 카테고리 별 민원 처리 갯수 -->
+<select id="getCompletedPostCountByCategory" resultType="map">
+   SELECT category AS "key", COUNT(*) AS "value"
+   FROM Post
+   WHERE completed = 1
+   GROUP BY category
+</select>
+<!-- 카테고리별 민원 건수 -->
+<select id="getPostCountByCategory" resultType="map">
+    SELECT category AS "key", COUNT(*) AS "value"
+    FROM Post
+    WHERE category IN ('행정,서류', '세무', '교통', '불편사항신고', '기타')
+    GROUP BY category
+    ORDER BY
+        CASE category
+            WHEN '행정,서류' THEN 1
+            WHEN '세무' THEN 2
+            WHEN '교통' THEN 3
+            WHEN '불편사항신고' THEN 4
+            WHEN '기타' THEN 5
+            ELSE 6 -- 혹시 모를 다른 카테고리는 마지막으로
+        END
+</select>
+<!-- 최근 접수된 민원 6개까지 테이블 출력 -->
+<select id="getRecentPosts" resultType="org.zerock.domain.PostVO">
+   SELECT *
+   FROM (
+     SELECT *
+     FROM Post
+     ORDER BY created_at DESC
+   )
+   WHERE ROWNUM &lt;= 6
+</select>
+<!-- 최근 공지사항 5개까지 테이블 출력 -->
+<select id="getRecentNotices" resultType="org.zerock.domain.NoticeVO">
+   SELECT *
+   FROM (
+     SELECT *
+     FROM notice
+     ORDER BY created_at DESC
+   )
+   WHERE ROWNUM &lt;= 5
+</select>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.AdminMapper">  
+
+<select id="findByAdminName" resultType="org.zerock.domain.AdminVO">
+    SELECT * FROM Admin WHERE username = #{username}
+</select>
+
+<insert id="insert" parameterType="org.zerock.domain.AdminVO">
+    INSERT INTO Admin (
+        admin_id, admin_name, password, name, email, role
+    ) VALUES (
+        seq_admin_id.NEXTVAL, #{admin_name}, #{password}, #{name}, #{email}, #{role}
+    )
+</insert>
+
+</mapper>

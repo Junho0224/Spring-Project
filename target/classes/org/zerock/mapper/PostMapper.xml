@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.PostMapper">
+
+  <!-- 전체 목록 조회 -->
+  <select id="getList" resultType="org.zerock.domain.PostVO">
+    SELECT * FROM Post
+  </select>
+
+  <!-- 상세 조회 -->
+  <select id="read" parameterType="int" resultType="org.zerock.domain.PostVO">
+    SELECT * FROM Post WHERE post_id = #{post_id}
+  </select>
+
+  <!-- 게시글 등록 -->
+  <insert id="insert" parameterType="org.zerock.domain.PostVO">
+    <selectKey keyProperty="post_id" resultType="int" order="BEFORE">
+      SELECT post_id_seq.NEXTVAL FROM DUAL
+    </selectKey>
+
+    INSERT INTO Post (post_id, jumin, title, content, category, completed)
+    VALUES (#{post_id}, #{jumin}, #{title}, #{content}, #{category}, #{completed})
+  </insert>
+
+  <!-- 게시글 삭제 -->
+  <delete id="delete" parameterType="int">
+    DELETE FROM Post WHERE post_id = #{post_id}
+  </delete>
+
+  <!-- 게시글 수정 -->
+  <update id="update" parameterType="org.zerock.domain.PostVO">
+    UPDATE Post
+    SET jumin = #{jumin},
+        title = #{title},
+        content = #{content},
+        category = #{category},
+        completed = #{completed}
+    WHERE post_id = #{post_id}
+  </update>
+
+  <!-- 미완료 게시글 수 -->
+  <select id="getCompleted" resultType="int">
+    SELECT COUNT(*) FROM Post WHERE completed = 0
+  </select>
+
+</mapper>
