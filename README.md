@@ -43,30 +43,44 @@
 
 ## 세부 설명
 
-![Image](https://github.com/user-attachments/assets/726af03d-96e4-424d-ad11-aa947a1f0810)
-![Image](https://github.com/user-attachments/assets/18a72b06-0cc8-442d-8e25-c04849fe0588)
-![Image](https://github.com/user-attachments/assets/04de83b4-57f2-4587-8077-ee62917e299e)
-![Image](https://github.com/user-attachments/assets/68633232-25a5-4fc4-a2ba-c63342582b26)
-![Image](https://github.com/user-attachments/assets/3669d1d5-1132-4d33-9729-fbd756b0fc45)
-![Image](https://github.com/user-attachments/assets/331feccb-710b-49f2-bbd7-ed5d931ba382)
-![Image](https://github.com/user-attachments/assets/ec8a78f3-6eb4-4bf8-879c-bc4f4b7c0171)
-![Image](https://github.com/user-attachments/assets/a8098111-d9e4-4b6d-917a-d732cacdbdd4)
-![Image](https://github.com/user-attachments/assets/5755ec21-d1c1-4781-bcaf-9aa7b47d4d9b)
-![Image](https://github.com/user-attachments/assets/da33ebdd-2ca0-4aac-bd4b-91fb98c44493)
-![Image](https://github.com/user-attachments/assets/84bdd084-e0c3-4a6f-8487-959f40f05ba4)
-![Image](https://github.com/user-attachments/assets/f416814f-aa3c-45a1-8300-3e8a8331993b)
-![Image](https://github.com/user-attachments/assets/1b0cd3d3-6397-46fd-9f77-a8a9e34ed8d1)
-![Image](https://github.com/user-attachments/assets/d379370d-05c1-4592-b184-036f7c8ac21c)
-![Image](https://github.com/user-attachments/assets/9f1ca03f-1a04-49c0-9926-4e74c4d8dfa0)
-![Image](https://github.com/user-attachments/assets/31011dda-8c78-4b10-b96c-b7ca0b3b3227)
-![Image](https://github.com/user-attachments/assets/6c9a1280-74d9-4c77-9d4d-0b3c98a8765c)
-![Image](https://github.com/user-attachments/assets/341b6973-4786-4ddc-9d0e-34a40e8c8baa)
-![Image](https://github.com/user-attachments/assets/4aa121dc-42ef-41da-bbaa-6de4c461246d)
-![Image](https://github.com/user-attachments/assets/60b4bb1d-ece3-4a39-8985-6327e66efb64)
-![Image](https://github.com/user-attachments/assets/30bb469a-ae84-44ab-b633-5ccdfa5fdefe)
-![Image](https://github.com/user-attachments/assets/441b3fc0-26db-43fd-91af-e05c2a378229)
+![Image](https://github.com/user-attachments/assets/39d091ce-1244-49d2-8658-1fefdb285482)
+![Image](https://github.com/user-attachments/assets/68350e24-7f82-41e3-b0ce-899f290c2cfd)
+![Image](https://github.com/user-attachments/assets/376c840f-f5e6-4d71-bc50-866a351a0fdd)
+![Image](https://github.com/user-attachments/assets/eac85e12-d23d-45db-aa89-bd717d98966c)
+![Image](https://github.com/user-attachments/assets/0d194330-e6d8-4cd1-8474-c33cfa038042)
+![Image](https://github.com/user-attachments/assets/114d0775-76b1-402c-966f-aa2dc04f5550)
+![Image](https://github.com/user-attachments/assets/2a6ffd54-585e-4c36-8d68-14bebd288584)
+![Image](https://github.com/user-attachments/assets/c0f4ce69-8ee5-466f-baad-a967e0e0f00d)
+![Image](https://github.com/user-attachments/assets/51d01921-6e33-4cc4-b193-337ec56b3b4d)
+![Image](https://github.com/user-attachments/assets/0dd342fe-ac9d-41f0-b7f9-62f7d8f30bdb)
+![Image](https://github.com/user-attachments/assets/fba1394f-d4d0-4391-89c3-7ac28486a360)
+![Image](https://github.com/user-attachments/assets/4d6e382b-67b9-4fa4-abf4-7584679676e3)
+![Image](https://github.com/user-attachments/assets/13645df5-9c65-4f41-90df-6b7917bd7e0f)
+![Image](https://github.com/user-attachments/assets/3fe240a8-f7e7-43f8-b57f-3bb515f7a412)
+![Image](https://github.com/user-attachments/assets/7a189ac8-6f13-4c28-8e1c-429169bfa03e)
+![Image](https://github.com/user-attachments/assets/52adf094-376f-497d-bd99-136ad20ff6f7)
+![Image](https://github.com/user-attachments/assets/1c4f1ffe-70d5-4540-9cc7-e522f62d45da)
+![Image](https://github.com/user-attachments/assets/638f3e11-6152-405e-90dc-a6f090470fcc)
+![Image](https://github.com/user-attachments/assets/fe087a39-e957-40e1-bc2e-7a8a5098966b)
+![Image](https://github.com/user-attachments/assets/dedd7c62-ec11-4bc8-95c8-56b4f0b12ed3)
+![Image](https://github.com/user-attachments/assets/17261059-2970-455b-955f-ef91b529f75c)
+![Image](https://github.com/user-attachments/assets/3a54f665-ce0b-4e2e-8783-3bf93a8ad92d)
 
 ---
 
 ## 워크플로우
 
+- **로그인 기능
+<video src="https://github.com/user-attachments/assets/ab27b76e-b0a4-46d9-978c-4d604dea5c71" controls width="600"></video>**
+- **대시보드 기능
+<video src="https://github.com/user-attachments/assets/ca260186-5a54-45e0-8e0b-c5ac1fb408a8" controls width="600"></video>**
+- **주민게시판 기능
+<video src="https://github.com/user-attachments/assets/e3153ea0-fb7b-4fae-b9b7-3ef7b583faea" controls width="600"></video>**
+- **민원게시판 기능
+<video src="https://github.com/user-attachments/assets/5bcd9f68-4724-45ec-8d1e-a328ad1e3eb4" controls width="600"></video>**
+- **민원사항 댓글 기능
+<video src="https://github.com/user-attachments/assets/dfd67d4d-b534-4980-922e-499058f6deb5" controls width="600"></video>**
+- **공지게시판 기능
+<video src="https://github.com/user-attachments/assets/a1c209a0-56f0-4c48-8cd5-05f525bf94be" controls width="600"></video>**
+
+---
