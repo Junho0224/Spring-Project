@@ -91,7 +91,7 @@ public class AdminController {
    public String update(MemberVO member, RedirectAttributes rttr) {
        service.update(member);
        rttr.addFlashAttribute("message", "수정되었습니다.");
-       return "redirect:/admin/resident/view?jumin=" + member.getJumin();
+       return "redirect:/admin/resident/view?member_id=" + member.getMember_id();
    }
      
      @GetMapping("/resident/list") 
