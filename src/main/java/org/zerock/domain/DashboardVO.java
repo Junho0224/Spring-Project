@@ -14,11 +14,11 @@ public class DashboardVO {
     private List<Map<String, Object>> postCountByCategory;
     private List<Map<String, Object>> postCountByType;
 
-//    private List<QnaVO> recentQnaList; //´ñ±Û Ãß°¡½Ã °³¹ß
+//    private List<QnaVO> recentQnaList; //ëŒ“ê¸€ ì¶”ê°€ì‹œ ê°œë°œ
     private List<PostVO> recentPosts;
     private List<NoticeVO> recentNotices;
     
-    // »ı¼ºÀÚ
+    // ìƒì„±ì
     public DashboardVO(int totalPostCount, int pendingPostCount, int completedPostCount, 
     	    List<Map<String, Object>> postCountByCategory, List<Map<String, Object>> postCountByType, 
     	    List<PostVO> recentPosts, List<NoticeVO> recentNotices) {

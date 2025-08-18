@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.zerock.domain.MemberVO;
 
-/* MemberService ÀÎÅÍÆäÀÌ½º */
+/* MemberService ì¸í„°í˜ì´ìŠ¤ */
 public interface MemberService {
    public List<MemberVO> getList();
    

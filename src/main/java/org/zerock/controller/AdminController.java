@@ -37,22 +37,22 @@ public class AdminController {
    
    @GetMapping("/dashboard")
    public String dashboardchk(Model model, Authentication authentication, HttpServletRequest request, HttpServletResponse response) {
-      System.out.println("/admin/dashboard ÄÁÆ®·Ñ·¯ µµ´Ş");
-      log.info(">> ·Î±×ÀÎ ¼º°øÇÑ »ç¿ëÀÚ: " + authentication.getName());
+      System.out.println("/admin/dashboard ì»¨íŠ¸ë¡¤ëŸ¬ ë„ë‹¬");
+      log.info(">> ë¡œê·¸ì¸ ì„±ê³µí•œ ì‚¬ìš©ì: " + authentication.getName());
        authentication.getAuthorities().forEach(auth -> {
-           log.info(">> ±ÇÇÑ: " + auth.getAuthority());
+           log.info(">> ê¶Œí•œ: " + auth.getAuthority());
        });
        
-       // 1. ÀÎÁõµÈ »ç¿ëÀÚ Á¤º¸ ²¨³»±â (UserDetails)
+       // 1. ì¸ì¦ëœ ì‚¬ìš©ì ì •ë³´ êº¼ë‚´ê¸° (UserDetails)
        User user = (User) authentication.getPrincipal();
        String username = user.getUsername();
-       log.info("·Î±×ÀÎÇÑ »ç¿ëÀÚ: " + username);
+       log.info("ë¡œê·¸ì¸í•œ ì‚¬ìš©ì: " + username);
 
-       // 2. DB¿¡¼­ AdminVO °¡Á®¿À±â
-       AdminVO admin = adminMapper.findByAdminName(username);  // ³Ê°¡ ¸¸µç Äõ¸® ÀÌ¸§¿¡ µû¶ó ´Ù¸§
-       log.info("DB¿¡¼­ °¡Á®¿Â °ü¸®ÀÚ: " + admin);
+       // 2. DBì—ì„œ AdminVO ê°€ì ¸ì˜¤ê¸°
+       AdminVO admin = adminMapper.findByAdminName(username);  // ë„ˆê°€ ë§Œë“  ì¿¼ë¦¬ ì´ë¦„ì— ë”°ë¼ ë‹¤ë¦„
+       log.info("DBì—ì„œ ê°€ì ¸ì˜¨ ê´€ë¦¬ì: " + admin);
 
-       // 3. ¼¼¼Ç¿¡ ÀúÀå
+       // 3. ì„¸ì…˜ì— ì €ì¥
        HttpSession session = request.getSession();
        session.setAttribute("loginAdmin", admin);
        
@@ -63,13 +63,13 @@ public class AdminController {
    
    @GetMapping("/resident/register")
    public String showRegisterForm() {
-       return "admin/resident/register"; // µî·ÏÆû jsp °æ·Î
+       return "admin/resident/register"; // ë“±ë¡í¼ jsp ê²½ë¡œ
    }
 
    @PostMapping("/resident/register")
    public String register(MemberVO member, RedirectAttributes rttr) {
        service.register(member);
-       rttr.addFlashAttribute("message", "µî·ÏÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+       rttr.addFlashAttribute("message", "ë“±ë¡ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
        return "redirect:/admin/resident/list";
    }
    
@@ -77,20 +77,20 @@ public class AdminController {
    public String view(@RequestParam("member_id") String member_id, Model model) {
        MemberVO member = service.get(member_id);
        model.addAttribute("member", member);
-       return "admin/resident/view"; // ÀÌ °æ·Î ±âÁØÀ¸·Î JSP À§Ä¡ Á¤ÇØÁ®
+       return "admin/resident/view"; // ì´ ê²½ë¡œ ê¸°ì¤€ìœ¼ë¡œ JSP ìœ„ì¹˜ ì •í•´ì ¸
    }
 
    @GetMapping("/resident/update")
    public String updateForm(@RequestParam("member_id") String member_id, Model model) {
        MemberVO member = service.get(member_id);
        model.addAttribute("member", member);
-       return "admin/resident/update"; // ¼öÁ¤ ÆûÀÇ JSP °æ·Î
+       return "admin/resident/update"; // ìˆ˜ì • í¼ì˜ JSP ê²½ë¡œ
    }
    
    @PostMapping("/resident/update")
    public String update(MemberVO member, RedirectAttributes rttr) {
        service.update(member);
-       rttr.addFlashAttribute("message", "¼öÁ¤µÇ¾ú½À´Ï´Ù.");
+       rttr.addFlashAttribute("message", "ìˆ˜ì •ë˜ì—ˆìŠµë‹ˆë‹¤.");
        return "redirect:/admin/resident/view?jumin=" + member.getJumin();
    }
      

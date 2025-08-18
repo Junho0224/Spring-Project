@@ -13,19 +13,19 @@ import org.zerock.mapper.AdminMapper;
 public class AdminDetailsService implements UserDetailsService {
 
     @Autowired
-    private AdminMapper adminMapper; // MyBatis ¶Ç´Â JPA »ç¿ë °¡´É
+    private AdminMapper adminMapper; // MyBatis ë˜ëŠ” JPA ì‚¬ìš© ê°€ëŠ¥
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AdminVO admin = adminMapper.findByAdminName(username);
         if (admin == null) {
-            throw new UsernameNotFoundException("°ü¸®ÀÚ¸¦ Ã£À» ¼ö ¾øÀ½");
+            throw new UsernameNotFoundException("ê´€ë¦¬ìë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŒ");
         }
 
         return User.builder()
                 .username(admin.getAdmin_name())
                 .password(admin.getPassword())
-                .roles(admin.getRole()) // ¿¹: ADMIN
+                .roles(admin.getRole()) // ì˜ˆ: ADMIN
                 .build();
     }
 }

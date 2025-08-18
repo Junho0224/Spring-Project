@@ -1,5 +1,5 @@
 package org.zerock.service;
-/* ReplyService ÀÎÅÍÆäÀÌ½º = ¼­ºñ½º°èÃş */
+/* ReplyService ì¸í„°í˜ì´ìŠ¤ = ì„œë¹„ìŠ¤ê³„ì¸µ */
 
 
 
@@ -10,15 +10,15 @@ import org.zerock.domain.ReplyPageDTO;
 import org.zerock.domain.ReplyVO;
 
 public interface ReplyService {
-	/* a. µî·Ï */
+	/* a. ë“±ë¡ */
 	public int register(ReplyVO vo);
-	/* b. ´ñ±Û °¡Á®¿À±â */
+	/* b. ëŒ“ê¸€ ê°€ì ¸ì˜¤ê¸° */
 	public ReplyVO get(Long rno);
-	/* c. ´ñ±Û ¼öÁ¤ */
+	/* c. ëŒ“ê¸€ ìˆ˜ì • */
 	public int modify(ReplyVO vo);
-	/* d. ´ñ±Û »èÁ¦ */
+	/* d. ëŒ“ê¸€ ì‚­ì œ */
 	public int remove(Long rno);
-	/* e. ÇØ´ç ±Û ´ñ±Û ¸ñ·Ï */
+	/* e. í•´ë‹¹ ê¸€ ëŒ“ê¸€ ëª©ë¡ */
 	public List<ReplyVO> getList(Criteria cri, Long post_id); 
 	
 	public ReplyPageDTO getListPage(Criteria cri, Long post_id);

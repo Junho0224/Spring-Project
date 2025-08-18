@@ -16,9 +16,9 @@ public class LoginController {
    public String login(Authentication auth) {
       System.out.println("auth -> " + auth);
        if (auth != null) {
-           System.out.println("ÇöÀç ·Î±×ÀÎÇÑ »ç¿ëÀÚ: " + auth.getName());
+           System.out.println("í˜„ì¬ ë¡œê·¸ì¸í•œ ì‚¬ìš©ì: " + auth.getName());
            for (GrantedAuthority ga : auth.getAuthorities()) {
-               System.out.println("±ÇÇÑ: " + ga.getAuthority());
+               System.out.println("ê¶Œí•œ: " + ga.getAuthority());
            }
        }
        

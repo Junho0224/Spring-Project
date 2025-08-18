@@ -17,31 +17,31 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	@Override
 	public void writeNotice(NoticeVO notice) {
-		log.info("°øÁö ÀÛ¼º ¸Ş¼­µå ÀÛµ¿");
+		log.info("ê³µì§€ ì‘ì„± ë©”ì„œë“œ ì‘ë™");
 		mapper.insertNotice(notice);
 	}
 
 	@Override
 	public List<NoticeVO> getNoticeList() {
-		log.info("°øÁö ¸®½ºÆ® °¡Á®¿À±â ¸Ş¼­µå ÀÛµ¿");
+		log.info("ê³µì§€ ë¦¬ìŠ¤íŠ¸ ê°€ì ¸ì˜¤ê¸° ë©”ì„œë“œ ì‘ë™");
 		return mapper.getNoticeList();
 	}
 
 	@Override
 	public void modifyNotice(NoticeVO notice) {
-		log.info("°øÁö ¼öÁ¤ ¸Ş¼­µå ÀÛµ¿");
+		log.info("ê³µì§€ ìˆ˜ì • ë©”ì„œë“œ ì‘ë™");
 		mapper.updateNotice(notice);
 	}
 
 	@Override
 	public NoticeVO getNotice(int notice_id) {
-		log.info("°øÁö »ó¼¼ ¸Ş¼­µå ÀÛµ¿");
+		log.info("ê³µì§€ ìƒì„¸ ë©”ì„œë“œ ì‘ë™");
 		return mapper.readNotice(notice_id);
 	}
 
 	@Override
 	public void removeNotice(int notice_id) {
-		log.info("°øÁö »èÁ¦ ¸Ş¼­µå ÀÛµ¿");
+		log.info("ê³µì§€ ì‚­ì œ ë©”ì„œë“œ ì‘ë™");
 		mapper.deleteNotice(notice_id);
 	}
 

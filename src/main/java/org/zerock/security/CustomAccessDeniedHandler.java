@@ -15,10 +15,10 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
    @Override
     public void handle(HttpServletRequest request, HttpServletResponse response,
                        AccessDeniedException accessDeniedException) throws IOException {
-      System.out.println("CustomAccessDeniedHandler È£ÃâµÊ");
+      System.out.println("CustomAccessDeniedHandler í˜¸ì¶œë¨");
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null) {
-            System.out.println("»ç¿ëÀÚ [" + auth.getName() + "]°¡ " + request.getRequestURI() + " Á¢±Ù °ÅºÎµÊ.");
+            System.out.println("ì‚¬ìš©ì [" + auth.getName() + "]ê°€ " + request.getRequestURI() + " ì ‘ê·¼ ê±°ë¶€ë¨.");
         }
 
         response.sendRedirect("/accessDenied");

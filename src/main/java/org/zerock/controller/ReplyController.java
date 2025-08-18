@@ -3,17 +3,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-/* ReplyController ¼³°è
- 	= REST ¹æ½ÄÀ¸·Î µ¿ÀÛ
- 	= REST ¹æ½Ä URL ¼³°è½Ã PK ±âÁØÀ¸·Î ÀÛ¼ºÇÏ´Â °ÍÀÌ ÁÁÀ½
- 	  PK¸¸À¸·Î Á¶È¸, ¼öÁ¤, »èÁ¦°¡ °¡´ÉÇÏ±â ¶§¹®
- 	= ´Ù¸¸, ´ñ±ÛÀÇ ¸ñ·ÏÀº PK¸¦ »ç¿ëÇÒ ¼ö ¾ø±â ¶§¹®¿¡ ÆÄ¶ó¹ÌÅÍ·Î °Ô½Ã¹°ÀÇ ¹øÈ£(bno)¿Í ÆäÀÌÁö¹øÈ£(page)Á¤º¸µéÀ» URL¿¡¼­ Ç¥ÇöÇÏ´Â ¹æ½Ä »ç¿ë
- 	#. REST ¹æ½ÄÀ¸·Î Ã³¸®½Ã ÁÖÀÇÇÒ Á¡
- 	  a. ºê¶ó¿ìÀú³ª ¿ÜºÎ¿¡¼­ ¼­¹ö¸¦ È£ÃâÇÒ ¶§
- 	     µ¥ÀÌÅÍÀÇ Æ÷¸Ë°ú ¼­¹ö¿¡¼­ º¸³»ÁÖ´Â µ¥ÀÌÅÍÀÇ Å¸ÀÔÀ» ¸íÈ®ÇÏ°Ô ¼³°èÇØ¾ß ÇÔ
- 	     (¿¹½Ã) ´ñ±Û µî·ÏÀÇ °æ¿ì
- 	       °¡. (ºê¶ó¿ìÀú) JSONÅ¸ÀÔÀ¸·Î µÈ ´ñ±Û µ¥ÀÌÅÍ¸¦ ¼­¹ö¿¡ Àü¼Û
- 	       ³ª. (¼­¹ö) ´ñ±ÛÀÇ Ã³¸® °á°ú°¡ Á¤»óÀûÀ¸·Î µÇ¾ú´ÂÁö ¹®ÀÚ¿­·Î °á°ú¸¦ ¾Ë·ÁÁÖµµ·Ï ÇÔ
+/* ReplyController ì„¤ê³„
+ 	= REST ë°©ì‹ìœ¼ë¡œ ë™ì‘
+ 	= REST ë°©ì‹ URL ì„¤ê³„ì‹œ PK ê¸°ì¤€ìœ¼ë¡œ ì‘ì„±í•˜ëŠ” ê²ƒì´ ì¢‹ìŒ
+ 	  PKë§Œìœ¼ë¡œ ì¡°íšŒ, ìˆ˜ì •, ì‚­ì œê°€ ê°€ëŠ¥í•˜ê¸° ë•Œë¬¸
+ 	= ë‹¤ë§Œ, ëŒ“ê¸€ì˜ ëª©ë¡ì€ PKë¥¼ ì‚¬ìš©í•  ìˆ˜ ì—†ê¸° ë•Œë¬¸ì— íŒŒë¼ë¯¸í„°ë¡œ ê²Œì‹œë¬¼ì˜ ë²ˆí˜¸(bno)ì™€ í˜ì´ì§€ë²ˆí˜¸(page)ì •ë³´ë“¤ì„ URLì—ì„œ í‘œí˜„í•˜ëŠ” ë°©ì‹ ì‚¬ìš©
+ 	#. REST ë°©ì‹ìœ¼ë¡œ ì²˜ë¦¬ì‹œ ì£¼ì˜í•  ì 
+ 	  a. ë¸Œë¼ìš°ì €ë‚˜ ì™¸ë¶€ì—ì„œ ì„œë²„ë¥¼ í˜¸ì¶œí•  ë•Œ
+ 	     ë°ì´í„°ì˜ í¬ë§·ê³¼ ì„œë²„ì—ì„œ ë³´ë‚´ì£¼ëŠ” ë°ì´í„°ì˜ íƒ€ì…ì„ ëª…í™•í•˜ê²Œ ì„¤ê³„í•´ì•¼ í•¨
+ 	     (ì˜ˆì‹œ) ëŒ“ê¸€ ë“±ë¡ì˜ ê²½ìš°
+ 	       ê°€. (ë¸Œë¼ìš°ì €) JSONíƒ€ì…ìœ¼ë¡œ ëœ ëŒ“ê¸€ ë°ì´í„°ë¥¼ ì„œë²„ì— ì „ì†¡
+ 	       ë‚˜. (ì„œë²„) ëŒ“ê¸€ì˜ ì²˜ë¦¬ ê²°ê³¼ê°€ ì •ìƒì ìœ¼ë¡œ ë˜ì—ˆëŠ”ì§€ ë¬¸ìì—´ë¡œ ê²°ê³¼ë¥¼ ì•Œë ¤ì£¼ë„ë¡ í•¨
 */
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -47,18 +47,18 @@ public class ReplyController {
 		log.info("ReplyVO => " + vo);
 		int insertCount = service.register(vo);
 		log.info("Reply INSERT COUNT => " + insertCount);
-		// »ïÇ×Á¶°Ç ¿¬»êÀÚ = ´ñ±ÛÃß°¡ À¯¹«¿¡ µû¶ó¼­ 200¹ø OK, 500¹ø Server Error ¹İÈ¯
+		// ì‚¼í•­ì¡°ê±´ ì—°ì‚°ì = ëŒ“ê¸€ì¶”ê°€ ìœ ë¬´ì— ë”°ë¼ì„œ 200ë²ˆ OK, 500ë²ˆ Server Error ë°˜í™˜
 		return insertCount == 1 ? new ResponseEntity<>("success 200",HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	/* Å×½ºÆ®ÀÛ¾÷ = Å©·Ò YARC »ç¿ë | select * from tbl_board Á¶È¸ ÈÄ ½ÇÁ¦ Á¸ÀçÇÏ´Â bno¹øÈ£·Î Å×½ºÆ®
+	/* í…ŒìŠ¤íŠ¸ì‘ì—… = í¬ë¡¬ YARC ì‚¬ìš© | select * from tbl_board ì¡°íšŒ í›„ ì‹¤ì œ ì¡´ì¬í•˜ëŠ” bnoë²ˆí˜¸ë¡œ í…ŒìŠ¤íŠ¸
 	 	URL : http://localhost:8080/replies/new
 	 	Payload : {"bno":27,"reply":"hello","replyer":"hj"}
-	 	- bno´Â ½ÇÁ¦ DB¿¡ÀÖ´Â ±Û¹øÈ£
-	 	- reply, replyer´Â ÄÃ·³¸í
+	 	- bnoëŠ” ì‹¤ì œ DBì—ìˆëŠ” ê¸€ë²ˆí˜¸
+	 	- reply, replyerëŠ” ì»¬ëŸ¼ëª…
 	 	Custom Headers : Content-Type application/json
-	 	=> Å×½ºÆ® ¼º°ø½Ã 200 OK
-	 	=> select * from tbl_reply where bno = 27; => ½ÇÁ¦ ¿µ¼Ó¼º Ã³¸®µÇ¾ú´ÂÁö È®ÀÎ */
+	 	=> í…ŒìŠ¤íŠ¸ ì„±ê³µì‹œ 200 OK
+	 	=> select * from tbl_reply where bno = 27; => ì‹¤ì œ ì˜ì†ì„± ì²˜ë¦¬ë˜ì—ˆëŠ”ì§€ í™•ì¸ */
 	
 	/*
 	 * @GetMapping(value="/pages/{bno}/{page}",
@@ -69,13 +69,13 @@ public class ReplyController {
 	 * @PathVariable("page") int page,
 	 * 
 	 * @PathVariable("bno") Long bno) {
-	 * log.info("getList.............................."); // Criteria ÅëÇØ ÆÄ¶ó¹ÌÅÍ ¼öÁı
-	 * {page}ÀÇ page°ªÀº Criteria¸¦ »ı¼ºÇØ¼­ Á÷Á¢ Ã³¸® Criteria cri = new Criteria(page, 10); //
+	 * log.info("getList.............................."); // Criteria í†µí•´ íŒŒë¼ë¯¸í„° ìˆ˜ì§‘
+	 * {page}ì˜ pageê°’ì€ Criteriaë¥¼ ìƒì„±í•´ì„œ ì§ì ‘ ì²˜ë¦¬ Criteria cri = new Criteria(page, 10); //
 	 * Criteria(pageNum=1, amount=10, type=null, keyword=null)
-	 * log.info("CriteriaÀÇ page => " + cri); return new
+	 * log.info("Criteriaì˜ page => " + cri); return new
 	 * ResponseEntity<>(service.getList(cri, bno), HttpStatus.OK); }
 	 */
-	/* (ºê¶ó¿ìÀúÅ×½ºÆ®) http://localhost:8080/replies/pages/1/1.json */
+	/* (ë¸Œë¼ìš°ì €í…ŒìŠ¤íŠ¸) http://localhost:8080/replies/pages/1/1.json */
 	
 	@GetMapping(value="/{rno}", 
 			produces={MediaType.APPLICATION_ATOM_XML_VALUE,
@@ -84,62 +84,62 @@ public class ReplyController {
 		log.info("get => " + rno);
 		return new ResponseEntity<>(service.get(rno), HttpStatus.OK);
 	}
-	/* (ºê¶ó¿ìÀúÅ×½ºÆ®) http://localhost:8080/replies/11 */
+	/* (ë¸Œë¼ìš°ì €í…ŒìŠ¤íŠ¸) http://localhost:8080/replies/11 */
 	
-	// ½ºÇÁ¸µ¿¡¼­ HTTP DELETE¿äÃ»À» Ã³¸®ÇÏ´Âµ¥ »ç¿ëµÇ´Â ¾î³ëÅ×ÀÌ¼Ç
-	// RESTful À¥ ¼­ºñ½º¿¡¼­ ÀÚ¿øÀ» »èÁ¦ÇÏ±â À§ÇÑ ¸Ş¼­µå¿¡ Àû¿ë
+	// ìŠ¤í”„ë§ì—ì„œ HTTP DELETEìš”ì²­ì„ ì²˜ë¦¬í•˜ëŠ”ë° ì‚¬ìš©ë˜ëŠ” ì–´ë…¸í…Œì´ì…˜
+	// RESTful ì›¹ ì„œë¹„ìŠ¤ì—ì„œ ìì›ì„ ì‚­ì œí•˜ê¸° ìœ„í•œ ë©”ì„œë“œì— ì ìš©
 	@DeleteMapping(value="/{rno}", produces={MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> remove(@PathVariable("rno") Long rno){
 		log.info("delete => " + rno);
 		return service.remove(rno) == 1 ? new ResponseEntity<>("success",HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
-	/* Å×½ºÆ®ÀÛ¾÷ = Å©·Ò YARC »ç¿ë | select * from tbl_board Á¶È¸ ÈÄ ½ÇÁ¦ Á¸ÀçÇÏ´Â rno¹øÈ£·Î Å×½ºÆ®
+	/* í…ŒìŠ¤íŠ¸ì‘ì—… = í¬ë¡¬ YARC ì‚¬ìš© | select * from tbl_board ì¡°íšŒ í›„ ì‹¤ì œ ì¡´ì¬í•˜ëŠ” rnoë²ˆí˜¸ë¡œ í…ŒìŠ¤íŠ¸
  	URL : http://localhost:8080/replies/6
- 	- rno´Â ½ÇÁ¦ DB¿¡ÀÖ´Â ±Û¹øÈ£
+ 	- rnoëŠ” ì‹¤ì œ DBì—ìˆëŠ” ê¸€ë²ˆí˜¸
  	Custom Headers : Content-Type application/json
- 	=> Å×½ºÆ® ¼º°ø½Ã 200 OK
- 	=> ½ÇÁ¦ ¿µ¼Ó¼º Ã³¸®µÇ¾ú´ÂÁö È®ÀÎ */
+ 	=> í…ŒìŠ¤íŠ¸ ì„±ê³µì‹œ 200 OK
+ 	=> ì‹¤ì œ ì˜ì†ì„± ì²˜ë¦¬ë˜ì—ˆëŠ”ì§€ í™•ì¸ */
 	
-	// JSONÇüÅÂ·Î Àü´ŞµÇ´Â µ¥ÀÌÅÍ¿Í ÆÄ¶ó¹ÌÅÍ·Î Àü´ŞµÇ´Â ´ñ±Û¹øÈ£(rno)¸¦ Ã³¸®ÇÔ
-	// ¼öÁ¤ = PUTÀÌ³ª PATCH ¹æ½ÄÀ» ÀÌ¿ëÇÏ¿© Ã³¸®
+	// JSONí˜•íƒœë¡œ ì „ë‹¬ë˜ëŠ” ë°ì´í„°ì™€ íŒŒë¼ë¯¸í„°ë¡œ ì „ë‹¬ë˜ëŠ” ëŒ“ê¸€ë²ˆí˜¸(rno)ë¥¼ ì²˜ë¦¬í•¨
+	// ìˆ˜ì • = PUTì´ë‚˜ PATCH ë°©ì‹ì„ ì´ìš©í•˜ì—¬ ì²˜ë¦¬
 	@RequestMapping(method = { RequestMethod.PUT, RequestMethod.PATCH },
-	         value = "/{rno}", // ´ñ±Û¹øÈ£
-	         consumes = "application/json", // ½ÇÁ¦ ¼öÁ¤µÇ´Â µ¥ÀÌÅÍ´Â JSON Æ÷¸ËÀ¸·Î ¼³Á¤ = @RequestBody ÅëÇØ Ã³¸®
+	         value = "/{rno}", // ëŒ“ê¸€ë²ˆí˜¸
+	         consumes = "application/json", // ì‹¤ì œ ìˆ˜ì •ë˜ëŠ” ë°ì´í„°ëŠ” JSON í¬ë§·ìœ¼ë¡œ ì„¤ì • = @RequestBody í†µí•´ ì²˜ë¦¬
 	         produces = { MediaType.TEXT_PLAIN_VALUE })
 	   public ResponseEntity<String> modify(
 	         @RequestBody ReplyVO vo,
 	         @PathVariable("rno") Long rno) {
-	      vo.setRno(rno); // ÀÔ·Â ÆÄ¶ó¹ÌÅÍ rno°ª setterÀÌ¿ëÇÏ¿© ¼öÁ¤
+	      vo.setRno(rno); // ì…ë ¥ íŒŒë¼ë¯¸í„° rnoê°’ setterì´ìš©í•˜ì—¬ ìˆ˜ì •
 	      log.info("rno => " + rno);
 	      log.info("modify => " + vo);
 	      return service.modify(vo) == 1
 	            ? new ResponseEntity<>("success", HttpStatus.OK)
 	            : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	   }
-	/* (Å©·Ò YARC »ç¿ë Å×½ºÆ®) 
+	/* (í¬ë¡¬ YARC ì‚¬ìš© í…ŒìŠ¤íŠ¸) 
 	 	URL : http://localhost:8080/replies/6
 	 	Payload : {"bno":1,"reply":"hellohello","replyer":"hj"}
 	 	Custom Headers : Content-Type application/json
-	 	=> Å×½ºÆ® ¼º°ø½Ã 200 OK
- 		=> ½ÇÁ¦ ¿µ¼Ó¼º Ã³¸®µÇ¾ú´ÂÁö È®ÀÎ */
+	 	=> í…ŒìŠ¤íŠ¸ ì„±ê³µì‹œ 200 OK
+ 		=> ì‹¤ì œ ì˜ì†ì„± ì²˜ë¦¬ë˜ì—ˆëŠ”ì§€ í™•ì¸ */
 	
 	
-	/* À§ÀÇ getList() ÇÚµé·¯ ÁÖ¼®Ã³¸® ÈÄ ¼öÁ¤ */
-	// ´ñ±Û ¸ñ·Ï, ´ñ±Û ÃÑ °¹¼ö ¹İÈ¯
+	/* ìœ„ì˜ getList() í•¸ë“¤ëŸ¬ ì£¼ì„ì²˜ë¦¬ í›„ ìˆ˜ì • */
+	// ëŒ“ê¸€ ëª©ë¡, ëŒ“ê¸€ ì´ ê°¯ìˆ˜ ë°˜í™˜
 	@GetMapping(value="/pages/{post_id}/{page}", produces={MediaType.APPLICATION_JSON_UTF8_VALUE})
-	// ¸®ÅÏÅ¸ÀÔ ¼öÁ¤
+	// ë¦¬í„´íƒ€ì… ìˆ˜ì •
 	public ResponseEntity<ReplyPageDTO> getList(
 			@PathVariable("post_id") Long post_id,
 			@PathVariable("page") int page) {
 		log.info("getList..............................");
 		Criteria cri = new Criteria(page, 10);
-		log.info("CriteriaÀÇ page => " + cri);
-		// ¸®ÅÏÅ¸ÀÔ, getListPage ¸Ş¼­µå¸í ¼öÁ¤
+		log.info("Criteriaì˜ page => " + cri);
+		// ë¦¬í„´íƒ€ì…, getListPage ë©”ì„œë“œëª… ìˆ˜ì •
 		return new ResponseEntity<>(service.getListPage(cri, post_id), HttpStatus.OK);
 	}
-	/* (ºê¶ó¿ìÀúÅ×½ºÆ®) http://localhost:8080/replies/pages/1/1.json
-	 	= ±âÁ¸°ú µ¿ÀÏÇÏ°Ô JSON µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏÁö¸¸ ReplyPageDTO°´Ã¼¸¦ JSONÀ¸·Î Àü¼ÛÇÏ°Ô µÊ
-	 	  => Æ¯Á¤ °Ô½Ã¹°ÀÇ ´ñ±Û ¸ñ·ÏÀ» Á¶È¸ÇÏ¸é replyCnt¿Í list¶ó´Â ÀÌ¸§ÀÇ ¼Ó¼ºÀ» °¡Áö´Â JSON¹®ÀÚ¿­ÀÌ Àü¼Û */
+	/* (ë¸Œë¼ìš°ì €í…ŒìŠ¤íŠ¸) http://localhost:8080/replies/pages/1/1.json
+	 	= ê¸°ì¡´ê³¼ ë™ì¼í•˜ê²Œ JSON ë°ì´í„°ë¥¼ ì „ì†¡í•˜ì§€ë§Œ ReplyPageDTOê°ì²´ë¥¼ JSONìœ¼ë¡œ ì „ì†¡í•˜ê²Œ ë¨
+	 	  => íŠ¹ì • ê²Œì‹œë¬¼ì˜ ëŒ“ê¸€ ëª©ë¡ì„ ì¡°íšŒí•˜ë©´ replyCntì™€ listë¼ëŠ” ì´ë¦„ì˜ ì†ì„±ì„ ê°€ì§€ëŠ” JSONë¬¸ìì—´ì´ ì „ì†¡ */
 
 }

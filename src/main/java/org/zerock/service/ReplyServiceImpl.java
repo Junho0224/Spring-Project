@@ -1,7 +1,7 @@
 package org.zerock.service;
 
 import java.util.List;
-/* ReplyService ±¸Çö Å¬·¡½º */
+/* ReplyService êµ¬í˜„ í´ë˜ìŠ¤ */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.zerock.domain.Criteria;
@@ -53,9 +53,9 @@ public class ReplyServiceImpl implements ReplyService{
 	
 	@Override
 	public ReplyPageDTO getListPage(Criteria cri, Long post_id) {
-		// ¸®ÅÏ = µÎ°³ÀÇ Á¤º¸¸¦ ÇÏ³ªÀÇ DTO °´Ã¼¿¡ ´ã¾Æ¼­ ¹İÈ¯
-		return new ReplyPageDTO(mapper.getCountByBno(post_id), // ´ñ±ÛÀÇ ÃÑ °¹¼ö
-				// ÆÄ¶ó¹ÌÅÍ cri = °Ë»öÁ¶°Ç¿¡ µû¸¥ ÆäÀÌÁö ¹øÈ£, ÆäÀÌÁö´ç Ç×¸ñ¼ö Á¤º¸ | bno = °Ô½Ã¹° ¹øÈ£
-				mapper.getListWithPaging(cri, post_id)); // ´ñ±Û ¸ñ·ÏÀÌ µÊ
+		// ë¦¬í„´ = ë‘ê°œì˜ ì •ë³´ë¥¼ í•˜ë‚˜ì˜ DTO ê°ì²´ì— ë‹´ì•„ì„œ ë°˜í™˜
+		return new ReplyPageDTO(mapper.getCountByBno(post_id), // ëŒ“ê¸€ì˜ ì´ ê°¯ìˆ˜
+				// íŒŒë¼ë¯¸í„° cri = ê²€ìƒ‰ì¡°ê±´ì— ë”°ë¥¸ í˜ì´ì§€ ë²ˆí˜¸, í˜ì´ì§€ë‹¹ í•­ëª©ìˆ˜ ì •ë³´ | bno = ê²Œì‹œë¬¼ ë²ˆí˜¸
+				mapper.getListWithPaging(cri, post_id)); // ëŒ“ê¸€ ëª©ë¡ì´ ë¨
 	}
 }

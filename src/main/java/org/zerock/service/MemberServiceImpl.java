@@ -40,7 +40,7 @@ public class MemberServiceImpl implements MemberService{
    
    @Override
    public MemberVO get(String member_id) {
-       return mapper.read(member_id); // ¿¹½Ã. read¶ó´Â ÀÌ¸§À¸·Î ±¸ÇöÇØµµ µÊ
+       return mapper.read(member_id); // ì˜ˆì‹œ. readë¼ëŠ” ì´ë¦„ìœ¼ë¡œ êµ¬í˜„í•´ë„ ë¨
    }
    
    @Override

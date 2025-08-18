@@ -1,0 +1,24 @@
+package org.zerock.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.zerock.domain.DashboardVO;
+import org.zerock.domain.NoticeVO;
+import org.zerock.domain.PostVO;
+import org.zerock.mapper.DashboardMapper;
+
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
+
+@Service
+@Log4j
+public class DashboardServiceImpl implements DashboardService {
+	@Autowired
+	private DashboardMapper mapper;
+	
+	@Override
+	public DashboardVO getDashboard() {
+		log.info("getDashboard() 

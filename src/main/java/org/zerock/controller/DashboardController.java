@@ -36,9 +36,9 @@ public class DashboardController {
    @GetMapping("/accessDenied")
    public String accessDenied(Authentication auth, Model model) {
        if (auth != null) {
-           System.out.println("Á¢±Ù °ÅºÎµÊ: »ç¿ëÀÚ = " + auth.getName());
+           System.out.println("ì ‘ê·¼ ê±°ë¶€ë¨: ì‚¬ìš©ì = " + auth.getName());
        }
-       model.addAttribute("msg", "Á¢±Ù ±ÇÇÑÀÌ ¾ø½À´Ï´Ù.");
-       return "common/accessDenied"; // JSP °æ·Î ¿¹½Ã
+       model.addAttribute("msg", "ì ‘ê·¼ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤.");
+       return "common/accessDenied"; // JSP ê²½ë¡œ ì˜ˆì‹œ
    }
 }

@@ -20,16 +20,16 @@ import lombok.extern.log4j.Log4j;
 public class NoticeController {
 	@Autowired
 	private NoticeService service;
-	// °øÁö ¸®½ºÆ® Ãâ·Â
+	// ê³µì§€ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥
 	@GetMapping("/list")
     public String noticeList(Model model) {
-		log.info("°øÁö¸®½ºÆ®Ãâ·Â!!!");
+		log.info("ê³µì§€ë¦¬ìŠ¤íŠ¸ì¶œë ¥!!!");
 	    List<NoticeVO> noticeList = service.getNoticeList();
 	    model.addAttribute("noticeList", noticeList);
 	    return "/admin/notice/list";
     }
-	// °øÁö µî·Ï
-	@GetMapping("/write") // get ¸ÅÇÎ
+	// ê³µì§€ ë“±ë¡
+	@GetMapping("/write") // get ë§¤í•‘
 	public String showWriteForm(@RequestParam("admin_name") String admin_name, Model model) {
 		model.addAttribute("admin_name", admin_name);
 	    return "/admin/notice/write";
@@ -39,8 +39,8 @@ public class NoticeController {
     	service.writeNotice(notice);
         return "redirect:/admin/notice/list";
     }
-    // °øÁö ¼öÁ¤
-    @GetMapping("/update") // get ¸ÅÇÎ
+    // ê³µì§€ ìˆ˜ì •
+    @GetMapping("/update") // get ë§¤í•‘
     public String showUpdateForm(@RequestParam("notice_id") int notice_id, Model model) {
     	NoticeVO notice = service.getNotice(notice_id);
     	model.addAttribute("notice", notice);
@@ -51,13 +51,13 @@ public class NoticeController {
     	service.modifyNotice(notice);
 	    return "redirect:/admin/notice/view?id=" + notice.getNotice_id();
     }
-    // °øÁö »èÁ¦
+    // ê³µì§€ ì‚­ì œ
     @GetMapping("/delete")
     public String noticeDelete(@RequestParam("notice_id") int notice_id) {
     	service.removeNotice(notice_id);
 	    return "redirect:/admin/notice/list";
     }
-    // °øÁö »ó¼¼
+    // ê³µì§€ ìƒì„¸
     @GetMapping("/view")
     public String noticeView(@RequestParam("id") int id, Model model) {
     	NoticeVO notice = service.getNotice(id);

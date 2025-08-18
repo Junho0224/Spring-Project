@@ -5,14 +5,14 @@ import java.util.List;
 import org.zerock.domain.NoticeVO;
 
 public interface NoticeMapper {
-	// °øÁö ¸®½ºÆ® °¡Á®¿À±â
+	// ê³µì§€ ë¦¬ìŠ¤íŠ¸ ê°€ì ¸ì˜¤ê¸°
 	public List<NoticeVO> getNoticeList();
-	// °øÁö µî·Ï
+	// ê³µì§€ ë“±ë¡
 	public void insertNotice(NoticeVO notice);
-	// °øÁö ¼öÁ¤
+	// ê³µì§€ ìˆ˜ì •
 	public void updateNotice(NoticeVO notice);
-	// °øÁö ÀĞ±â
+	// ê³µì§€ ì½ê¸°
 	public NoticeVO readNotice(int notice_id);
-	// °øÁö »èÁ¦
+	// ê³µì§€ ì‚­ì œ
 	public void deleteNotice(int notice_id);
 }

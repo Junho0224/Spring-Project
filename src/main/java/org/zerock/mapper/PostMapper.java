@@ -1,5 +1,5 @@
 package org.zerock.mapper;
-/* PostMapper  �� �� �� �� �� */
+/* PostMapper  占쏙옙 占쏙옙 占쏙옙 占쏙옙 占쏙옙 */
 
 import java.util.List;
 
